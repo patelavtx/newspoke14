@@ -14,7 +14,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         backendServiceArm: 'atulavtx-sst2'
-        backendAzureRmResourceGroupName: 'atulrg-optesting'
+        backendAzureRmResourceGroupName: 'atulrg-opstesting'
         backendAzureRmStorageAccountName: 'atulstorspk16'
         backendAzureRmContainerName: 'ctrspk16'
         backendAzureRmKey: 'spk16.tfstate'
