@@ -14,10 +14,10 @@ stages:
         provider: 'azurerm'
         command: 'init'
         backendServiceArm: 'atulavtx-sst2'
-        backendAzureRmResourceGroupName: 'AzureBackupRG_westeurope_1'
-        backendAzureRmStorageAccountName: 'atulstorlabznat'
-        backendAzureRmContainerName: 'atulctrlabznat'
-        backendAzureRmKey: 'labznat.tfstate'
+        backendAzureRmResourceGroupName: 'atulrg-optesting'
+        backendAzureRmStorageAccountName: 'atulstorspk16'
+        backendAzureRmContainerName: 'ctrspk16'
+        backendAzureRmKey: 'spk16.tfstate'
     - task: TerraformTaskV3@3
       displayName: 'validate'
       inputs:
@@ -43,10 +43,10 @@ stages:
                 provider: 'azurerm'
                 command: 'init'
                 backendServiceArm: 'atulavtx-sst2'
-                backendAzureRmResourceGroupName: 'AzureBackupRG_westeurope_1'
-                backendAzureRmStorageAccountName: 'atulstorlabznat'
-                backendAzureRmContainerName: 'atulctrlabznat'
-                backendAzureRmKey: 'labznat.tfstate'
+                backendAzureRmResourceGroupName: 'atulrg-optesting'
+                backendAzureRmStorageAccountName: 'atulstorspk16'
+                backendAzureRmContainerName: 'ctrspk16'
+                backendAzureRmKey: 'spk16.tfstate'
             - task: TerraformTaskV3@3
               displayName: 'plan'
               inputs:
