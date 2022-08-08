@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: SpokeNAT
+- group: spoke16-vg
 
 stages:
 - template: pipeline-templates/valandplan.yaml
