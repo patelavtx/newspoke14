@@ -63,7 +63,6 @@ module "spoke1_nat" {
       dnat_port = "22",
     },
   }
-  }
 depends_on = [
     module.spoke_azure_1,
   ]
