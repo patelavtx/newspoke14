@@ -29,5 +29,5 @@ stages:
                     provider: 'azurerm'
                     command: 'destroy'
                     #commandOptions: '-var "ctrl_password=$(TF_VAR_ctrlpassword)" -var "controller_ip=$(TF_VAR_controller_ip)"'
-                    commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)"'
+                    #commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)"'
                     environmentServiceNameAzureRM: 'atulavtx-sst2'
