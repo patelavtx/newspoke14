@@ -55,6 +55,14 @@ module "spoke1_nat" {
       dnat_ips  = var.dnatip2,
       dnat_port = "80",
     },
+    rule4 = {
+      dst_cidr  = var.dstcidr2,
+      dst_port  = "2222",
+      protocol  = "tcp",
+      dnat_ips  = var.dnatip2,
+      dnat_port = "22",
+    },
+  }
   }
 depends_on = [
     module.spoke_azure_1,
