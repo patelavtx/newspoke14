@@ -1,0 +1,33 @@
+stages:
+  - stage: deploy
+    jobs:
+      - deployment: deploy_terraform
+        continueOnError: false
+        environment: 'spoke16-destroy'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+                - task: TerraformInstaller@0
+                  displayName: 'install'
+                  inputs:
+                    terraformVersion: '1.1.0'
+                - task: TerraformTaskV3@3
+                  displayName: 'init'
+                  inputs:
+                    provider: 'azurerm'
+                    command: 'init'
+                    backendServiceArm: 'atulavtx-sst2'
+                    backendAzureRmResourceGroupName: 'atulrg-opstesting'
+                    backendAzureRmStorageAccountName: 'atulstorspk16'
+                    backendAzureRmContainerName: 'ctrspk16'
+                    backendAzureRmKey: 'spk16.tfstate'
+                - task: TerraformTaskV2@2
+                  displayName: 'destroy'
+                  inputs:
+                    provider: 'azurerm'
+                    command: 'destroy'
+                    #commandOptions: '-var "ctrl_password=$(TF_VAR_ctrlpassword)" -var "controller_ip=$(TF_VAR_controller_ip)"'
+                    commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)"'
+                    environmentServiceNameAzureRM: 'atulavtx-sst2'
