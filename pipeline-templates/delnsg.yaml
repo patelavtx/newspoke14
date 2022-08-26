@@ -1,0 +1,17 @@
+stages:
+- stage: add_rule
+  jobs:
+    - deployment: add_sg_rule
+      continueOnError: false
+      environment: 'spoke16'
+      strategy:
+        runOnce:
+          deploy:
+           steps:
+             - task: AzureCLI@2
+               displayName: 'del nsg'
+               inputs:
+                  azureSubscription: 'atulavtx-sst2'
+                  scriptType: 'bash'
+                  scriptLocation: 'inlineScript'
+                  inlineScript: 'az network nsg rule delete --name myPC --nsg-name $(controller-nsg)  --resource-group $(resource_group)'
