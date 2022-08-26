@@ -4,12 +4,7 @@ stages:
       - deployment: add_nsg_rule
         continueOnError: false
         environment: 'spoke16'
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-              -task: 
-- task: AzureCLI@2
+  - task: AzureCLI@2
   inputs:
     azureSubscription: 'atlavtx-sst2'
     scriptType: 'bash'
