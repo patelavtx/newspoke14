@@ -1,17 +1,18 @@
-
 stages:
   - stage: add_rule
     jobs:
       - deployment: add_nsg_rule
         continueOnError: false
-        environment: 'dev'
+        environment: 'spoke16'
         strategy:
           runOnce:
             deploy:
               steps:
-              - task: AWSShellScript@1
-                inputs:
-                  awsCredentials: 'AWScnx'
-                  regionName: 'eu-west-1'
-                  scriptType:     'inline'
-                  inlineScript:   'aws ec2 authorize-security-group-ingress --group-id $(SGID) --ip-permissions IpProtocol=-1,FromPort=0,ToPort=0,IpRanges="[{CidrIp=0.0.0.0/0}]"'
+              -task: 
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'atlavtx-sst2'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az network nsg rule create --name myPC --nsg-name $(controller-nsg) --priority 190 --resource-group atulrg-hactrl --access Allow --protocol ''*'' --source-address-prefixes 86.20.255.82 --destination-portrange 443'
+   
