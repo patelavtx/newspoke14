@@ -1,5 +1,5 @@
 stages:
-- stage: add_rule
+- stage: del_rule
   jobs:
     - deployment: del_nsg_rule
       continueOnError: false
