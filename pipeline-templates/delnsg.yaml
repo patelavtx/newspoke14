@@ -1,7 +1,7 @@
 stages:
 - stage: add_rule
   jobs:
-    - deployment: add_sg_rule
+    - deployment: del_nsg_rule
       continueOnError: false
       environment: 'spoke16'
       strategy:
