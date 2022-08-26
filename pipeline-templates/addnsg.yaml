@@ -1,17 +1,18 @@
 stages:
-  - stage: add_rule
-    jobs:
-      - deployment: add_sg_rule
-        continueOnError: false
-        environment: 'dev'
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-                - task: AzureCLI@2
-                inputs:
+- stage: add_rule
+  jobs:
+    - deployment: add_sg_rule
+      continueOnError: false
+      environment: 'spoke16'
+      strategy:
+        runOnce:
+          deploy:
+           steps:
+             - task: AzureCLI@2
+               displayName: 'set nsg'
+               inputs:
                   azureSubscription: 'atlavtx-sst2'
                   scriptType: 'bash'
                   scriptLocation: 'inlineScript'
-                 inlineScript: 'az network nsg rule create --name myPC --nsg-name $(controller-nsg) --priority 190 --resource-group atulrg-hactrl --access Allow --protocol ''*'' --source-address-prefixes 86.20.255.82 --destination-portrange 443'
+                  inlineScript: 'az network nsg rule create --name myPC --nsg-name $(controller-nsg) --priority 190 --resource-group atulrg-hactrl --access Allow --protocol ''*'' --source-address-prefixes 86.20.255.82 --destination-portrange 443'
    
