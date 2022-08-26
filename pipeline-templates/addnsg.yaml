@@ -1,0 +1,17 @@
+
+stages:
+  - stage: add_rule
+    jobs:
+      - deployment: add_nsg_rule
+        continueOnError: false
+        environment: 'dev'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - task: AWSShellScript@1
+                inputs:
+                  awsCredentials: 'AWScnx'
+                  regionName: 'eu-west-1'
+                  scriptType:     'inline'
+                  inlineScript:   'aws ec2 authorize-security-group-ingress --group-id $(SGID) --ip-permissions IpProtocol=-1,FromPort=0,ToPort=0,IpRanges="[{CidrIp=0.0.0.0/0}]"'
