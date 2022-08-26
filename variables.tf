@@ -77,3 +77,8 @@ variable "tags" {
   type = map(string)
   description = ""
 }
+
+variable "resource_group" {
+    type = string
+}
+
