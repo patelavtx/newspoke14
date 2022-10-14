@@ -1,4 +1,4 @@
-controller_ip = "20.108.101.68"
+controller_ip = "20.126.212.235"
 ctrl_password = "Aviatrix123#"
 
 name          = "dev-azweu-spoke16"
