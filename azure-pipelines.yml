@@ -29,11 +29,13 @@ stages:
                   inputs:
                     secureFile: spoke17.tfvars
                     #retryCount: 5 # Optional    
+               
                 - task: TerraformTaskV2@2
                   displayName: 'destroy'
                   inputs:
                     provider: 'azurerm'
-                    command: 'apply -destroy'
+                    command: 'apply'
+                    commandOptions: '-destroy -var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
                     #commandOptions: '-var "ctrl_password=$(TF_VAR_ctrlpassword)" -var "controller_ip=$(TF_VAR_controller_ip)"'
                     #commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
                     environmentServiceNameAzureRM: 'atulavtx-sst2'
