@@ -17,7 +17,7 @@ module "spoke_azure_1" {
   resource_group = "atulrg-spoke16"
   name = var.name
   subnet_pairs = "2"
-  included_advertised_spoke_routes = "10.255.16.1/32,10.255.16.2/32,10.255.16.251/32,10.255.16.252/32"
+  included_advertised_spoke_routes = "10.255.17.1/32,10.255.17.2/32,10.255.17.251/32,10.255.17.252/32"
 
   #tags = var.tags 
 }
@@ -83,47 +83,3 @@ depends_on = [
 }
 
 
-
-# Example of *tfvars
-
-/*
-controller_ip = "
-name          = ""
-cidr          = "10.16.1.0/24"
-region       = "West Europe"
-account      = ""
-transit_gw   = "aztransit184-weu"
-attached     = "true"
-nat_attached = "false"
-ha_gw        = "false"
-
-tags = {
-  ProjectName        = "AIB-MC"
-  BusinessOwnerEmail = "apatel@aviatrix.com"
-}
-*/
-
-/*
-╷
-│ Error: failed to configure policies for 'customized_snat' mode due to: rest API enable_snat Post failed: following parameter is required: gateway_name
-│
-│   with module.spoke1_nat[0].aviatrix_gateway_snat.gw_2[0],
-│   on .terraform/modules/spoke1_nat/main.tf line 30, in resource "aviatrix_gateway_snat" "gw_2":
-│   30: resource "aviatrix_gateway_snat" "gw_2" {
-│
-
-
-
-Needed to update here: .terraform/modules/spoke1_nat/variables.tf
-
-From>
-locals {
-  is_ha = var.spoke_gw_object.ha_gw_size != NULL
-}
-
-
-To>
-locals {
-  is_ha = var.spoke_gw_object.ha_gw_size != ""
-}
-*/

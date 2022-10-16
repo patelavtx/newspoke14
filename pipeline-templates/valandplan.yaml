@@ -15,9 +15,9 @@ stages:
         command: 'init'
         backendServiceArm: 'atulavtx-sst2'
         backendAzureRmResourceGroupName: 'atulrg-opstesting'
-        backendAzureRmStorageAccountName: 'atulstorspk16'
-        backendAzureRmContainerName: 'ctrspk16'
-        backendAzureRmKey: 'spk16.tfstate'
+        backendAzureRmStorageAccountName: 'atulstorspk17'
+        backendAzureRmContainerName: 'ctrspk17'
+        backendAzureRmKey: 'spk17.tfstate'
     - task: TerraformTaskV3@3
       displayName: 'validate'
       inputs:
@@ -27,7 +27,7 @@ stages:
   jobs:
     - deployment: validate_and_plan
       continueOnError: false
-      environment: 'spoke16'
+      environment: 'spoke17'
       strategy:
        runOnce:
          deploy:
@@ -44,15 +44,20 @@ stages:
                 command: 'init'
                 backendServiceArm: 'atulavtx-sst2'
                 backendAzureRmResourceGroupName: 'atulrg-opstesting'
-                backendAzureRmStorageAccountName: 'atulstorspk16'
-                backendAzureRmContainerName: 'ctrspk16'
-                backendAzureRmKey: 'spk16.tfstate'
+                backendAzureRmStorageAccountName: 'atulstorspk17'
+                backendAzureRmContainerName: 'ctrspk17'
+                backendAzureRmKey: 'spk17.tfstate'
+            - task: DownloadSecureFile@1
+              name: mySecureFile # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
+              inputs:
+                secureFile: spoke17.tfvars
+                #retryCount: 5 # Optional
             - task: TerraformTaskV3@3
               displayName: 'plan'
               inputs:
                 provider: 'azurerm'
                 command: 'plan'
                 #commandOptions: '-input=false -var "ctrl_password=$(TF_VAR_ctrl_password)" -var "controller_ip=$(TF_VAR_controller_ip)"'
-                commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)"'
+                commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
 
                 environmentServiceNameAzureRM: 'atulavtx-sst2'

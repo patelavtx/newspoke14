@@ -2,4 +2,4 @@ stages:
   - stage: manual_approval
     jobs:
       - deployment: 'DeployToProduction'
-        environment: 'spoke16'
+        environment: 'spoke17'

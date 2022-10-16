@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- group: spoke16-vg
+- group: spoke17-vg
 
 stages:
 - template: pipeline-templates/addnsg.yaml
