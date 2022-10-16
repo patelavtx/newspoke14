@@ -33,7 +33,7 @@ stages:
                   displayName: 'destroy'
                   inputs:
                     provider: 'azurerm'
-                    command: 'apply -desstroy'
+                    command: 'apply -destroy'
                     #commandOptions: '-var "ctrl_password=$(TF_VAR_ctrlpassword)" -var "controller_ip=$(TF_VAR_controller_ip)"'
                     #commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
                     environmentServiceNameAzureRM: 'atulavtx-sst2'
