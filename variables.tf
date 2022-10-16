@@ -3,7 +3,7 @@ variable "controller_ip" {
   type        = string
 }
 
-variable "ctrl_password" {
+variable "ctrl-password" {
     type = string
 }
 

@@ -58,6 +58,9 @@ stages:
                 provider: 'azurerm'
                 command: 'plan'
                 #commandOptions: '-input=false -var "ctrl_password=$(TF_VAR_ctrl_password)" -var "controller_ip=$(TF_VAR_controller_ip)"'
-                commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
+                # Gets variables from tfvars, variables.tf identifies the password and ip settings
+                #commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
+                commandOptions: '-var "ctrl-password=$(ctrl-password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
+
 
                 environmentServiceNameAzureRM: 'atulavtx-sst2'
