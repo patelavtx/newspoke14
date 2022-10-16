@@ -14,4 +14,4 @@ stages:
                   azureSubscription: 'atulavtx-sst2'
                   scriptType: 'bash'
                   scriptLocation: 'inlineScript'
-                  inlineScript: 'az network nsg rule delete --name myPC --nsg-name $(controller-nsg)  --resource-group $(controller_rg)'
+                  inlineScript: 'az network nsg rule delete --name deploy17 --nsg-name $(controller-nsg)  --resource-group $(controller_rg)'

@@ -14,5 +14,5 @@ stages:
                   azureSubscription: 'atulavtx-sst2'
                   scriptType: 'bash'
                   scriptLocation: 'inlineScript'
-                  inlineScript: 'az network nsg rule create --name myPC --nsg-name $(controller-nsg) --priority 190 --resource-group $(controller_rg) --access Allow --protocol ''*'' --source-address-prefixes 86.20.255.82 --destination-port-ranges 80 443'
+                  inlineScript: 'az network nsg rule create --name deploy17 --nsg-name $(controller-nsg) --priority 217 --resource-group $(controller_rg) --access Allow --protocol ''*'' --source-address-prefixes 86.20.255.82 --destination-port-ranges 80 443'
    
