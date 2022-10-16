@@ -1,4 +1,4 @@
-variable "controller_ip" {
+variable "controller-ip" {
   description = "Set controller ip"
   type        = string
 }

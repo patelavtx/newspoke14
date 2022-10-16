@@ -35,6 +35,6 @@ stages:
                     command: 'apply'
                     #commandOptions: '-var "ctrl_password=$(TF_VAR_ctrlpassword)" -var "controller_ip=$(TF_VAR_controller_ip)"'
                     #commandOptions: '-var "ctrl_password=$(ctrl_password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
-                    commandOptions: '-var "ctrl-password=$(ctrl-password)" -var "controller_ip=$(controller_ip)" -var-file "$(mySecureFile.secureFilePath)"'
+                    commandOptions: '-var "ctrl-password=$(ctrl-password)" -var "controller-ip=$(controller-ip)" -var-file "$(mySecureFile.secureFilePath)"'
 
                     environmentServiceNameAzureRM: 'atulavtx-sst2'
