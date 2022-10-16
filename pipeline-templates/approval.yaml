@@ -2,4 +2,4 @@ stages:
   - stage: manual_approval
     jobs:
       - deployment: 'DeployToProduction'
-        environment: 'spoke17'
+        environment: 'newspoke17'

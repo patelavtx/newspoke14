@@ -3,7 +3,7 @@ stages:
   jobs:
     - deployment: add_sg_rule
       continueOnError: false
-      environment: 'spoke17'
+      environment: 'newspoke17'
       strategy:
         runOnce:
           deploy:
