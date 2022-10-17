@@ -3,7 +3,7 @@
 
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-overlap-nat-spoke/aviatrix/latest
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-spoke/aviatrix/latest
-
+/*
 module "spoke_azure_1" {
   source         = "terraform-aviatrix-modules/mc-spoke/aviatrix"
   version        = "1.3.2"
@@ -83,3 +83,4 @@ depends_on = [
 }
 
 
+*/

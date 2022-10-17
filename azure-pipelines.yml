@@ -29,7 +29,6 @@ stages:
                   inputs:
                     secureFile: spoke17.tfvars
                     #retryCount: 5 # Optional    
-               
                 - task: TerraformTaskV2@2
                   displayName: 'destroy'
                   inputs:
