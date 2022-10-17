@@ -14,7 +14,7 @@ module "spoke_azure_1" {
   region         = var.region
   ha_gw          = var.ha_gw
   account        = var.account
-  resource_group = "atulrg-spoke16"
+  resource_group = "atulrg-spoke17"
   name = var.name
   subnet_pairs = "2"
   included_advertised_spoke_routes = "10.255.17.1/32,10.255.17.2/32,10.255.17.251/32,10.255.17.252/32"
