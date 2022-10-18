@@ -83,7 +83,7 @@ module "spoke1_nat" {
       dnat_port = "77",
     },
   }
-depends_on = [time_sleep.wait_30_seconds]
+depends_on = [time_sleep.wait_90_seconds]
 }
 
 
