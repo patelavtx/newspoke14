@@ -22,8 +22,8 @@ module "spoke_azure_1" {
 }
 
 # Add delay to allow spoke-transit tunnels to come up before deploying custom nat
-resource "time_sleep" "wait_30_seconds" {
-    create_duration = "30s"
+resource "time_sleep" "wait_90_seconds" {
+    create_duration = "90s"
     depends_on = [module.spoke_azure_1]
 }
 
