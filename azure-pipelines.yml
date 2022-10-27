@@ -4,7 +4,7 @@ stages:
     jobs:
       - deployment: deploy_terraform
         continueOnError: false
-        environment: 'spoke17-destroy'
+        environment: 'spoke14-destroy'
         strategy:
           runOnce:
             deploy:
@@ -27,7 +27,7 @@ stages:
                 - task: DownloadSecureFile@1
                   name: mySecureFile # The name with which to reference the secure file's path on the agent, like $(mySecureFile.secureFilePath)
                   inputs:
-                    secureFile: spoke17.tfvars
+                    secureFile: spoke14.tfvars
                     #retryCount: 5 # Optional    
                 - task: TerraformTaskV2@2
                   displayName: 'destroy'

@@ -3,7 +3,7 @@ stages:
     jobs:
       - deployment: deploy_terraform
         continueOnError: false
-        environment: 'newspoke17'
+        environment: 'newspoke14'
         strategy:
           runOnce:
             deploy:
