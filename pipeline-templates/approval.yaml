@@ -2,4 +2,4 @@ stages:
   - stage: manual_approval
     jobs:
       - deployment: 'DeployToProduction'
-        environment: 'newspoke14'
+        environment: 'spoke14-kv'

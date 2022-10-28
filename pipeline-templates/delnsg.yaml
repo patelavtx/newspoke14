@@ -3,7 +3,7 @@ stages:
   jobs:
     - deployment: del_nsg_rule
       continueOnError: false
-      environment: 'newspoke14'
+      environment: 'spoke14-kv'
       strategy:
         runOnce:
           deploy:
