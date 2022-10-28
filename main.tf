@@ -35,7 +35,7 @@ module "spoke1_nat" {
   count           = var.nat_attached ? 1 : 0
   #ha_gw           = var.ha_gw
   spoke_gw_object = module.spoke_azure_1.spoke_gateway
-  spoke_cidrs     = var.spoke-cidrs
+  spoke_cidrs     = var.spoke_cidrs
   transit_gw_name = var.transit_gw
   gw1_snat_addr   = var.gw1_snat
   gw2_snat_addr   = var.gw2_snat
