@@ -74,6 +74,8 @@ stages:
                 TF_VAR_dstcidr2: $(dstcidr2)
                 TF_VAR_ctrl_password: $(ctrl-password)
                 TF_VAR_controller_ip: $(controller-ip)
+                TF_VAR_az_client_id: $(az-client-id)
+                TF_VAR_az_client_secret: $(az-client-secret)
                 #TF_VAR_tags: $(tags)
               inputs:
                 provider: 'azurerm'
