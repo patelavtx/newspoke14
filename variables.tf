@@ -72,11 +72,11 @@ variable "ha_gw" {
   description = "Required when spoke is HA pair."
   default     = true
 }
-
+/*
 variable "tags" {
   type = map(string)
   description = ""
 }
-
+*/
 
 
