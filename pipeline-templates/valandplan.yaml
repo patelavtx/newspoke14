@@ -12,9 +12,9 @@ stages:
     - task: AzureKeyVault@1
       inputs:
         ConnectedServiceName: $(service_name)
-        keyVaultName: $(key_vault_name)
-        secretsFilter: '*'
-        runAsPreJob: false     
+        KeyVaultName: $(key_vault_name)
+        SecretsFilter: '*'
+        RunAsPreJob: false     
     - task: TerraformTaskV3@3
       displayName: init
       inputs:
