@@ -29,7 +29,7 @@ variable "region" {
   type        = string
 }
 
-variable "spoke_cidrs" {
+variable "spoke-cidrs" {
     description = "spoke vpc range"
     type = list(string)
 }
