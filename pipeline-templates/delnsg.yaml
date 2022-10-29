@@ -1,6 +1,20 @@
 stages:
 - stage: del_rule
   jobs:
+  - job: validate
+    continueOnError: false
+    steps:
+    - task: TerraformInstaller@0
+      displayName: 'install'
+      inputs:
+        terraformVersion: '1.2.0'
+      #Azure KEY Vault
+    - task: AzureKeyVault@1
+      inputs:
+        ConnectedServiceName: $(service_name)
+        KeyVaultName: $(key_vault_name)
+        SecretsFilter: '*'
+        RunAsPreJob: false 
     - deployment: del_nsg_rule
       continueOnError: false
       environment: 'spoke14-kv'
