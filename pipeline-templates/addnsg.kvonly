@@ -2,12 +2,19 @@ stages:
 - stage: add_rule
   jobs:
   - deployment: add_sg_rule
-      continueOnError: false
-      environment: 'spoke14-kv'
-      strategy:
+    displayName: Add inbound rule to controller nsg
+    continueOnError: false
+    environment: 'spoke14-kv'
+    strategy:
         runOnce:
           deploy:
            steps:
+             - task: AzureKeyVault@1
+               inputs:
+                 ConnectedServiceName: $(service_name)
+                 KeyVaultName: $(key_vault_name)
+                 SecretsFilter: '*'
+                 RunAsPreJob: false 
              - task: AzureCLI@2
                displayName: 'set nsg'
                inputs:

@@ -2,14 +2,20 @@ stages:
 - stage: del_rule
   jobs:
   - deployment: del_nsg_rule
-      continueOnError: false
-      environment: 'spoke14-kv'
-      strategy:
+    displayName: Remove inbound rule from controller nsg
+    continueOnError: false
+    environment: 'spoke14-kv'
+    strategy:
         runOnce:
           deploy:
            steps:
+             - task: AzureKeyVault@1
+               inputs:
+                 ConnectedServiceName: $(service_name)
+                 KeyVaultName: $(key_vault_name)
+                 SecretsFilter: '*'
+                 RunAsPreJob: false 
              - task: AzureCLI@2
-               displayName: 'del nsg'
                inputs:
                   azureSubscription: 'atulavtx-sst2'
                   scriptType: 'bash'
