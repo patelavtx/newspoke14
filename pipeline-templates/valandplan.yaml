@@ -58,7 +58,7 @@ stages:
                 TF_VAR_attached: $(attached)
                 TF_VAR_nat_attached: $(nat-attached)
                 TF_VAR_ha_gw: $(ha-gw)
-                TF_VAR_spoke_cidrs: $(spoke-cidrs)
+                TF_VAR_spoke_cidrs: '["($(spoke-cidrs)"]'
                 TF_VAR_gw1_snat: $(gw1-snat)
                 TF_VAR_gw2_snat: $(gw2-snat)
                 TF_VAR_dnatip: $(dnatip)
