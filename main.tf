@@ -33,7 +33,7 @@ module "spoke1_nat" {
   source          = "terraform-aviatrix-modules/mc-overlap-nat-spoke/aviatrix"
   version         = "1.0.4"
   count           = var.nat_attached ? 1 : 0
-  #ha_gw           = var.ha_gw
+  #ha_gw           = var.ha-gw
   spoke_gw_object = module.spoke_azure_1.spoke_gateway
   spoke_cidrs     = var.spoke_cidrs
   transit_gw_name = var.transit_gw

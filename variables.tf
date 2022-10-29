@@ -1,9 +1,9 @@
-variable "controller-ip" {
+variable "controller_ip" {
   description = "Set controller ip"
   type        = string
 }
 
-variable "ctrl-password" {
+variable "ctrl_password" {
     type = string
 }
 

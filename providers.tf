@@ -1,8 +1,8 @@
 # Configure Aviatrix provider
 provider "aviatrix" {
-  controller_ip           = var.controller-ip
+  controller_ip           = var.controller_ip
   username                = "admin"
-  password                = var.ctrl-password
+  password                = var.ctrl_password
 
 }
 
