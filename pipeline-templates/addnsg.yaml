@@ -1,27 +1,20 @@
 stages:
 - stage: add_rule
   jobs:
-  - job: validate
+  - deployment: add_sg_rule
+    displayName: Add inbound rule to controller nsg
     continueOnError: false
-    steps:
-    - task: TerraformInstaller@0
-      displayName: 'install'
-      inputs:
-        terraformVersion: '1.2.0'
-      #Azure KEY Vault
-    - task: AzureKeyVault@1
-      inputs:
-        ConnectedServiceName: $(service_name)
-        KeyVaultName: $(key_vault_name)
-        SecretsFilter: '*'
-        RunAsPreJob: false 
-    - deployment: add_sg_rule
-      continueOnError: false
-      environment: 'spoke14-kv'
-      strategy:
+    environment: 'spoke14-kv'
+    strategy:
         runOnce:
           deploy:
            steps:
+             - task: AzureKeyVault@1
+               inputs:
+                 ConnectedServiceName: $(service_name)
+                 KeyVaultName: $(key_vault_name)
+                 SecretsFilter: '*'
+                 RunAsPreJob: false 
              - task: AzureCLI@2
                displayName: 'set nsg'
                inputs:
