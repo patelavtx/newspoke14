@@ -1,4 +1,3 @@
-/*
 # AZURE spoke - dev 
 
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-overlap-nat-spoke/aviatrix/latest
@@ -87,4 +86,3 @@ depends_on = [time_sleep.wait_90_seconds]
 }
 
 
-*/
